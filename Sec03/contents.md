@@ -208,3 +208,130 @@ Java is **case-sensitive** meaning that it expects words to be in the correct fo
 
 ## Chapter 18 - Exploring Integer Ranges and Wrapper Classes
 In this chapter, we will be looking at some additional data types besides *int*. It's important to remember that these basic types are also referred to as *primitive data types* to differentiate them from more complex, code-generated data types we could build. 
+
+There are eight primitive data types in Java:
+
+| Whole Numbers | Real Numbers (Floating Point or Decimal) |
+| :-----------: | :---------------------------------------:|
+| byte          | float                                    |
+| short         | double                                   |
+| int           |                                          |
+| long          |                                          |
+|---------------| -----------------------------------------|
+| Single Character | Boolean Value                        |
+| ------------------| -------------------------------------|
+| char              | boolean                              |
+
+### What Data Can We Store in an Integer?
+- There is a specified range of values allowed for the *int* data type
+- The allowable range of values is **not infinite**
+- There is a defined minimum and maximum value for an integer 
+- To determine what we can store in an integer, we can use the following code:
+    ```java
+    int myMinIntValue = Integer.MIN_VALUE;
+    myMinIntValue ==> -2147483648
+    ```
+    - What this tells us is that the *lowest* value we can store in an integer is the value of *-2147483648* 
+    - My using the *Integer.MIN_VALUE* we are revealing that Integer is a **wrappper class** which means that Java already has some specific and pre-determined attributes that it can use with this data type. 
+- Another wrapper item we can determine about integer is the Max Value. This can be determined like this:
+    ```java
+    int myMaxIntValue = Integer.MAX_VALUE;
+    myMaxIntValue ==> 2147483648
+    ```
+    - Much like the Min Value, another integer attribute is the max value so we cannot assign a value of any higher than this to an integer. 
+- Now we want to print the full range of the Integer value but we're giong to use a compound statement. 
+- We can achieve presenting multiple values to a single screen by concatenation of values. An example of this is as follows:
+    ```java
+    System.out.print("Integer Minimum Value = " + myMinIntValue);
+    ```
+    - The use of the plus sign (+) in the system.out.print command allows different types of data on the same line as a single line of text. 
+    - In the example above, we created a label called "Integer Minimum Value" and set it to display the myMinIntValue data. 
+- If we do not want to create a variable just to store this value, we can ask Java to print the wrapper text using this code:
+    ```java
+    System.out.print("Integer Minimum Value = " + Integer.MIN_VALUE);
+    ```
+    - This will produce the same exact value as we saw before but it won't require us to burn a variable just for this value. 
+- To display the integer range in a single line, we scan use the following command:
+    ```java
+    System.out.print("Integer Value Range (" + Integer.MIN_VALUE + " to " + Integer.MAX_VALUE + ")");
+    ```
+    - We don't have to put this all on one line if we don't want to. We can use the multi-line code entry by doing this:
+        ```java
+        System.out.print(
+            "Integer Value Range ("
+            +
+            Integer.MIN_VALUE
+            +
+            " to "
+            +
+            Integer.MAX_VALUE
+            +
+            ")"
+        );
+        ```
+    - The resulting values are the same, but it allows us to more readily see each piece of the code. 
+### Classes
+A class is a building block for Object-Oriented programming, and allows us to build custom data types. By itself, a class is an object that is a collection of attributes. You can interact directly with the entire class object or you can interact with just a single or set of attributes of the class. 
+
+### Wrapper Classes
+Java establishes a *wrapper class* for all of its eight primitive data types. 
+- Wrappers can provide simple operations and basic information about the primitive data type. But the information cannot be stored on the primitive itself.
+- In the previous example, we interacted with the MIN_VALUE and MAX_VALUE of the Integer Wrapper. 
+- Wrapper Types and their Classes:
+    | Primitive | Wrapper Class |
+    |-----|-----|
+    | byte | Byte |
+    | short | Short |
+    | char | Character |
+    | int | Integer |
+    | long | Long |
+    | float | Float |
+    | double | Double |
+    | boolean | Boolean |
+
+### Maxing Out the Integer
+If we attempted to make the MAX Value of the Integer go higher than the maximum value it can accept, you will cause the integer value to reset. 
+- An example of what this looks like is here:
+    ```java
+    System.out.print("Busted Max Value = " + (myMaxIntValue + 1));
+    ```
+    - We attempted to add one more number to the maximum value of an integer and the result is `-2147483648`
+    - This is called an *overflow* because the integer cannot accept the value but tries to anyway and it hit its upper limit. 
+- The same process will also work if we attempted to do the same thing with the minimum value:
+    ```java
+    System.out.print("Busted Min Value = " + (myMinIntValue -1));
+    ```
+    - We attempted to subtract one number from the minimum value of an integer and the result is `2147483647` because we hit an *underflow* this time. 
+
+### Overflow and Underflow in Java
+- If we force a value higher than the maximum value for an integer, we will trigger an *overflow*
+- If we force a value lower that the minimum value for an integer, we will trigger an *underflow* 
+- This concept is also called an *integer wraparound* and is dangerous because Java will simply flip around to the polar end of the value and keep processing without an error.
+- This could cause serious issues when counting large numbers or dealing with exteremely small numbers. 
+
+### Assigning Numeric Literals to an Integer 
+- Another problem we may encounter is if we try to force an integer to take a number bigger than it can accept when we declare the variable. The code may look like this:
+    ```java
+    System.out.print("Integer Maximum Value = " + Integer.MAX_VALUE);
+    Integer Maximum Value = 2147483647
+    int myMaxIntTest = 2147483648;
+    ```
+    - This will produce the following error because we have attempted to force a value that is beyond Int's capacity:
+        ```java
+        Error:
+        integer number too large
+        int myMaxInTest = 2147483648;
+        ```
+- An integer wraparound (overflow or underflow) can occur in Java when you are using expressions that are not a simple literal value.
+- The Java compiler does not attempt to evaluate the expression to determine its value, so it DOES NOT give you an error. 
+- Here are some other examples that will create an overflow without checking for the condition:
+    ```java
+    int willThisCompile = (Integer.MAX_VALUE + 1);
+    int willThisCompile = (2147483647 + 1);
+    ```
+- However, if you were to try `int willThisCompile = 2147483648;` it will throw an error. 
+
+### Underscores and Numeric Literals
+- In Java you cannot put commas in a numeric literal. So something like this will not work: `int myMaxIntTest = 2,147,483,647;`. 
+- However, if you would like to break this down you can use the underscore like this: `int myMaxIntTest = 2_147_483_647;`
+- We can use the underscore any time we might have previously used a comma, but it **cannot** be used at the begining of a number. 
