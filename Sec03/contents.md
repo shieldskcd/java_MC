@@ -143,3 +143,68 @@ Operators are an example of what we did in the complex variable activity above. 
 
 ## Chapter 17 - Comprehensive Introduction Guide to Using Variables in Java Expressions
 In this chapter, we will take the basics we learned in Java Expressions and do a lot more with them. 
+
+- Remember that an *expression* is **the code segment that is on the right side of the equals sign in an assignment or declaration statement**
+
+### Challenge
+In this challenge, the instructor wants us to create two new variables. 
+- Create a new variable called *mySecondNumber*, make it an *int* type, and set it to *12*
+- Create another new variable called *myThirdNumber*, make it an *int* type, and set it to 6. 
+- The code to do this is as follows:
+    ```java
+    int mySecondNumber = 12;
+    int myThirdNumber = 6;
+    ```
+- At any time, we can confirm all variables we have currently declared using `/var`
+- If we would like to declare a new variable to store the total of all of the values we have established, here is how to do that:
+    ```java
+    int myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
+    ```
+    - If desired, we could continue adding values together for as long as we want. 
+    - This equates to: 35 + 12 + 6 which is 53. 
+- We now want to change the value of myThirdNumber to the value of myFirstNubmer * 2. 
+    - The code for this is:
+        ```java
+        myThirdNumber = myFirstNumber * 2; 
+        ```
+    - This will set the value of myThirdNumber to be 70 (35 * 2). 
+    - To confirm that this code worked, we want to retype the code we used to add the numbers together. 
+    ```java
+    myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
+    ```
+    - now, the value should be 35 + 12 + 70 which equals 117. 
+
+### Challenge
+In this challenge, the instructor wants us to do a few steps to show our knowledge of operators. 
+- Created a new variable called *myLastOne*
+- Make sure it is set to a data type of *int*
+- It's value should be set to the value of **1000** *minus* the value of **myTotal**
+- Finally, print out the value on the screen. 
+
+- The code for this challenge is as follows:
+    ```java
+    int myLastOne = 1000 - myTotal;
+    System.out.print(myLastOne);
+    ```
+    - This should result in a value of 883 since 1000 - 117 (the value of myTotal) = 883. 
+
+- In order to explain a potential error, the instructor showed us what happens if we accidentally mistyped the variable name. 
+    - In this case, let's say we accidentally typed `System.out.print(MyLastOne);` (note the capitalized My instead of my). 
+    - This would generate the following error:
+        ```java
+        Error:
+        cannot find symbol
+            symbol: variable MyLastOne
+        System.out.print(MyLastOne);
+        ```
+
+#### Important note about Java and Syntax
+Java is **case-sensitive** meaning that it expects words to be in the correct format. This includes not only *keywords* and *language syntax* but variable names and data types as well.
+
+- In this example, **MyLastOne** is considered a completely different variable than **myLastOne** only because of the capital M. 
+- Furthermore, **int**, **Int**, and **INT** are all considered *different values*
+- Keywords need to be in *lowercase* 
+- Variables will always be exactly as you declare them, *including capitalization*
+
+## Chapter 18 - Exploring Integer Ranges and Wrapper Classes
+In this chapter, we will be looking at some additional data types besides *int*. It's important to remember that these basic types are also referred to as *primitive data types* to differentiate them from more complex, code-generated data types we could build. 
