@@ -4,7 +4,7 @@ This is the notes from Section 2 in the course.
 ## Chapter 14
 - Installed JDK 17 LTS
 - Confirmed our Java Version via command prompt
--- 'java -version'
+    - `java -version`
 - Experimented with our first program (HelloWorld.java) 
 - Talked about JShell
 
