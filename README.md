@@ -23,7 +23,7 @@ The second section of the course discusses how to install the Java SDK on your d
 In this chapter, the instructor wants us to confirm that we have java installed and that it is the right version. 
 
 To do this, we openened a command prompt and typed the following code:
-'java -version' 
+`java -version`
 
 My version shows that I have:
 > java version 17.0.14
