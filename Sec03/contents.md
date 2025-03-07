@@ -94,7 +94,7 @@ In this challenge, the instructor wants us to modify the value of myFirstNumber 
 - The code to do this is as follows:
     ```java
     myFirstNumber = 1000;
-    System.out.print(myFirstNumber)
+    System.out.print(myFirstNumber);
     ``` 
 - This presents the value as it should be. 
 - Note, if we included the comma `myFirstNumber = 1,000;` we will get the following error:
@@ -130,7 +130,7 @@ In the previous examples, we have only used a single variable value after the eq
     System.out.print(myFirstNumber);
     ```
 
-    - This should give you a total of *35* because we added 10 and 5 to get 15, we then multiplied 2 by 10 to get 20, and finally added both balues together (15 + 20 = 35).
+    - This should give you a total of *35* because we added 10 and 5 to get 15, we then multiplied 2 by 10 to get 20, and finally added both values together (15 + 20 = 35).
 
 ### Operators
 Operators are an example of what we did in the complex variable activity above. You will use operators throughout your time coding in Java (or any language, really). The most common operators are simple mathematical ones but you will use much more in the future. 
