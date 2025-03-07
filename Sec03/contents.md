@@ -13,6 +13,7 @@ This will be the "Hello World" program and discusses basic error handling.
 In order to learn some of the common mistakes made by programmers, we tried a few different things that caused Java to report errors. 
 - First, if we omit the closing parenthesis `System.out.print("Hello, Tim"` we will be prompted wth the `...>` prompt because JShell assumes we wanted to add more lines to our code. If we just type the closing statements on the line `...> );` the code will work. 
 - Next, if we forget to close the string of text, `System.out.print("Hello, Tim);` we get a different error: 
+
     ```java
     
         Error:
@@ -20,8 +21,10 @@ In order to learn some of the common mistakes made by programmers, we tried a fe
         System.out.print("Hello, Tim);
     
     ```
+   
     - This is because the double quotes are considered a String Literal that we did not close. 
 - Unlike JavaScript or Python, we cannot enclose strings in a single quote ('). If we tried that, `System.out.print('Hello, Tim');` we will get basically the same error as the one above:
+
     ```java
     
         Error:
@@ -29,6 +32,7 @@ In order to learn some of the common mistakes made by programmers, we tried a fe
         System.out.print('Hello, Tim');
     
     ```
+    
     - This is because the only acceptable way to designate a string in Java is with double quotes. 
 
 ## Chapter 16 - Introduction to Variables, Keywords, and Integer (int) data types. 
