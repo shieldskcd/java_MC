@@ -53,4 +53,4 @@ Section 3 of the material focuses on how to do more basic programming in Java su
     - The second challenge focused on creating additional variables and using operators to automatically do mathematical operations when declaring variables. 
 - The chapter ended with some important notes about syntax such as what part capitalization plays in this and the best format for variables. 
 
-### Exploring Integer Ranges and Wrapper Classes
+### Chapter 18 - Exploring Integer Ranges and Wrapper Classes
