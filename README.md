@@ -1,2 +1,3 @@
 # java_MC
-Github for Java Master Class from Udemy. 
+This repository for the Java MasterClass on Udemy. 
+
