@@ -23,9 +23,10 @@ In order to learn some of the common mistakes made by programmers, we tried a fe
     - This is because the double quotes are considered a String Literal that we did not close. 
 - Unlike JavaScript or Python, we cannot enclose strings in a single quote ('). If we tried that, `System.out.print('Hello, Tim');` we will get basically the same error as the one above:
     ```java
-    {Error:
-    Unclosed character literal
-    System.out.print('Hello, Tim');
+    {
+        Error:
+        Unclosed character literal
+        System.out.print('Hello, Tim');
     }
     ```
     - This is because the only acceptable way to designate a string in Java is with double quotes. 
