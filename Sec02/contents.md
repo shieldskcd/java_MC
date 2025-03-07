@@ -13,10 +13,10 @@ The instructor explanes the values of the Java Shell (JShell) tool for executing
 
 - JShell became standard in JDK 9
 - It is a *Read-Eval-Print-Loop* (REPL) tool which completes the following steps:
--- it **reads** the command or code we type in.
--- it **evaluates** and executes the code and often allows shortcuts to be used. 
--- it **prints** out the results of the evaluation or execution without making us write out the code. 
-- Lastly, it loops back out to serve as a sandbox. 
+    - it **reads** the command or code we type in.
+    - it **evaluates** and executes the code and often allows shortcuts to be used. 
+    - it **prints** out the results of the evaluation or execution without making us write out the code. 
+    - Lastly, it loops back out to serve as a sandbox. 
 - JShell is **not** a replacement for an IDE. 
 - [JShell-Docs](https://docs,oracle.com/en/java/javase/17/jshell/introduction-jshell.html)
 
