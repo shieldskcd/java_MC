@@ -335,3 +335,60 @@ If we attempted to make the MAX Value of the Integer go higher than the maximum 
 - In Java you cannot put commas in a numeric literal. So something like this will not work: `int myMaxIntTest = 2,147,483,647;`. 
 - However, if you would like to break this down you can use the underscore like this: `int myMaxIntTest = 2_147_483_647;`
 - We can use the underscore any time we might have previously used a comma, but it **cannot** be used at the begining of a number. 
+
+## Chapter 19 - Understanding Byte, Short, and Long Data Types
+Each of these data types in Java have a different width. If we are to properly use them, we need to understand more about their role and width. 
+
+### Primitive Data Types in Java
+| Whole Number Data Type | Wrapper Class | What's noteworthy |
+|--------                |--------       | --------          |
+| byte | Byte | Has the smallest range |
+| short | Short |   |
+| int | Integer | Java's Default Data Type for whole numbers |
+| long | Long | Has the largest range |
+
+- Because Byte is a wrapper class like Integer, we can use the same basic code to print its max and minimum values. 
+- The code looks like this:
+    ```java
+    System.out.print("Byte Value Range (" + Byte.MIN_VALUE + " to " + Byte.MAX_VALUE + ")");
+    ```
+    - This should output the values `Byte Value Range (-128 to 127)`
+
+- Given the small size of the byte, it is rare to use it for most practical programs but it may have uses for handling small data sets and save on memory. 
+- It may also be a good way to ensure that your program will not accept anything larger than the range so users do not attempt to put anything larger in the value. 
+
+- Short is another data type that is only used for a few unique situations. 
+- We can review it's size with the following code:
+    ```java
+    System.out.print("Short Value Range (" + Short.MIN_VALUE + " to " + Short.MAX_VALUE + ")");
+    ```
+    - The resulting code should look like this: `Short Value Range (-32768 to 32767)`
+
+- **NOTE** The *byte* and *short* data types have the same overflow problem found in the *int* data type so if the values inserted into them are outside of their range, they will cause overflow or underflow. 
+
+### Size and Width of Primitive Data Types
+
+| Data Type | Width (in bits) | Min Value | Max Value |
+|------     | ------          | ------    | ------    |
+| byte | 8 | -128 | 127 |
+| short | 16 | -32768 | 37267 |
+| int | 32 | -2147483648 | 2147483648 |
+
+- The *Long* data type is the largest of the primitive data types in Java
+- Long is used when you must deal with extremely large datasets that require extra space. 
+- We can create an example of a long data type by using the following code: 
+    ```java
+    long myLongValue = 100L;
+    ```
+    - It is typically a Java best practice to include the letter *L* at the end of a Long Number. This tells Java (and the programmer) that this is a Long, even if it doesn't use all that space initially. 
+    - We can check how long the Long value can be by using the *SIZE* operator with the *Long* wrapper. 
+    - The code looks like this: `("A Long has a width of " + Long.Size);`
+    - This should output: `A Long has a width of 64.`
+- This is **TWICE** the size of an Int data type and equates to something like 2^63.
+- We can use the same code we used for the others to determine the range on this data type:
+    ```java
+    System.out.print("Long Value Range (" + Long.MIN_VALUE + " to " + Long.MAX_VALUE + ")");
+    ```
+    - This will output the following range: `Long Value Range (-9223372036854775808 to 9223372036854775807)`
+
+    
