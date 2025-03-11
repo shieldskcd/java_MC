@@ -1,6 +1,17 @@
 # Section 3
 This section is our first look at actually doing code in Java. We will be working with JShell first and then move into an IDE. 
 
+## Table of Contents
+- [Chapter 15 - Writing our First Code](#chapter-15---writing-our-first-code)
+- [Chapter 16 - Introduction to variables, keywords and integer data types](#chapter-16---introduction-to-variables-keywords-and-integer-int-data-types)
+- [Chapter 17 - Comprehensive Introduction to using variables in Java](#chapter-17---comprehensive-introduction-guide-to-using-variables-in-java-expressions)
+- [Chapter 18 - Exploring Integer Ranges and Wrapper Classes](#chapter-17---comprehensive-introduction-guide-to-using-variables-in-java-expressions)
+- [Chapter 19 - Understanding Short, Byte, and Long Data Types](#chapter-19---understanding-byte-short-and-long-data-types)
+- [Chapter 20 - Understanding Casting with Numeric Primitives in Java](#chapter-20---understanding-casting-with-numeric-primitives-types-in-java)
+- [Chapter 21 - Primitive Types Challenge: Appying Your Knowledge](#chapter-21---primitive-types-challenge-applying-your-knowledge)
+
+---
+
 ## Chapter 15 - Writing Our First Code
 This will be the "Hello World" program and discusses basic error handling. 
  - We created our first code, the standard, HelloWorld program but did it from JShell instead of actual code like the one seen in Section 2. 
@@ -34,6 +45,10 @@ In order to learn some of the common mistakes made by programmers, we tried a fe
     ```
     
     - This is because the only acceptable way to designate a string in Java is with double quotes. 
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## Chapter 16 - Introduction to Variables, Keywords, and Integer (int) data types. 
 This section will delve deeper into using some basic Java elements to produce more detailed code. 
@@ -141,6 +156,10 @@ Operators are an example of what we did in the complex variable activity above. 
     - Multiplication
 - These can be used with numbers to do most common math. 
 
+[Back to Top](#table-of-contents)
+
+---
+
 ## Chapter 17 - Comprehensive Introduction Guide to Using Variables in Java Expressions
 In this chapter, we will take the basics we learned in Java Expressions and do a lot more with them. 
 
@@ -205,6 +224,10 @@ Java is **case-sensitive** meaning that it expects words to be in the correct fo
 - Furthermore, **int**, **Int**, and **INT** are all considered *different values*
 - Keywords need to be in *lowercase* 
 - Variables will always be exactly as you declare them, *including capitalization*
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## Chapter 18 - Exploring Integer Ranges and Wrapper Classes
 In this chapter, we will be looking at some additional data types besides *int*. It's important to remember that these basic types are also referred to as *primitive data types* to differentiate them from more complex, code-generated data types we could build. 
@@ -336,6 +359,10 @@ If we attempted to make the MAX Value of the Integer go higher than the maximum 
 - However, if you would like to break this down you can use the underscore like this: `int myMaxIntTest = 2_147_483_647;`
 - We can use the underscore any time we might have previously used a comma, but it **cannot** be used at the begining of a number. 
 
+[Back to Top](#table-of-contents)
+
+---
+
 ## Chapter 19 - Understanding Byte, Short, and Long Data Types
 Each of these data types in Java have a different width. If we are to properly use them, we need to understand more about their role and width. 
 
@@ -404,6 +431,10 @@ Each of these data types in Java have a different width. If we are to properly u
     ``` 
     - However, if you add the expected *L* on the end `long bigLongLiteralValue = 2_147_483_647_234L;` then you will not get an error. 
 
+[Back to Top](#table-of-contents)
+
+---
+
 ## Chapter 20 - Understanding Casting with Numeric Primitives Types in Java
 We will use the option for casting specific types of numbers as other values in Java in this section. 
 
@@ -464,6 +495,10 @@ No, not like what a wizard does...
 
 - This will work with other data types as well including short:
     `short myNewShortValue = (short) (myMinShortValue /2);`
+
+[Back to Top](#table-of-contents)
+
+---
 
 ## Chapter 21 - Primitive Types Challenge: Applying Your Knowledge
 This chapter is focused on doing some challenges with various data types to test our skills. 
