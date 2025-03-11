@@ -460,7 +460,7 @@ No, not like what a wizard does...
     ```java
      byte myNewByteValue = (byte) (myMinByteValue / 2);
      ```
-    - This will establish the value to be *-64* which will easily fit in a byte data type. 
+- This will establish the value to be *-64* which will easily fit in a byte data type. 
 
 - This will work with other data types as well including short:
     `short myNewShortValue = (short) (myMinShortValue /2);`
