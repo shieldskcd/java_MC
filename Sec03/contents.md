@@ -457,7 +457,9 @@ We will use the option for casting specific types of numbers as other values in 
 No, not like what a wizard does...
 
 **Casting** means to treat or convert a number, from one type to another. We put the type we want the number to be in parenthesis like this:
-`byte myNewByteValue = (byte) (myMinByteValue / 2);`
+    ```java
+     byte myNewByteValue = (byte) (myMinByteValue / 2);
+     ```
     - This will establish the value to be *-64* which will easily fit in a byte data type. 
 
 - This will work with other data types as well including short:
