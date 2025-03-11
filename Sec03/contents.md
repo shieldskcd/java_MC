@@ -405,3 +405,63 @@ Each of these data types in Java have a different width. If we are to properly u
     - However, if you add the expected *L* on the end `long bigLongLiteralValue = 2_147_483_647_234L;` then you will not get an error. 
 
 ## Chapter 20 - Understanding Casting with Numeric Primitives Types in Java
+We will use the option for casting specific types of numbers as other values in Java in this section. 
+
+- One thing we have not done yet is to declare and initialize a variable on the same line in Java. This is perfeclty acceptable and used commonly. 
+`short myMinShortValue = Short.MIN_VALUE; int myMinIntValue = Integer.MIN_VALUE;`
+    - In this example, we are using a single line to create multiple variables and also establishing the default values. 
+- It is also possible to declare multiple variables of the same kind in a single line of code:
+    `byte myMinByteValue = Byte.MIN_VALUE, myMaxByteValue = Byte.MAX_VALUE;`
+    - This will create two of the *byte* variable types with their values already set. 
+
+### Rules for Declaring Multiple Variables in one statement
+- You cannot declare variables with different data types in a single statement (i.e. byte and int)
+    - This code shows you an example of how Java will react to this:
+    ```java
+    short firstShort = 1, int firstInteger = 2;
+
+    Error:
+    <identifer> expected
+    ```
+    - If you were to replace the , with a semicolon, the code would actually work as expected: `short firstShort = 1; int firstInteger =2;`
+
+- If you declare multiple data variables of the same data type, you must specify the data type *only once* before any variable names. 
+    - This code shows you an example of Java will react to this: 
+    ```java
+    byte firstByte = 1, byte secondByte = 2;
+
+    Error:
+    <identifier> expected
+    ```
+    - You can fix this in one of two ways:
+    `byte firstByte = 1; byte secondByte = 2` (using a semicolon)
+    OR
+    `byte firstByte = 1, secondByte = 2;` (using a comma and removing the second *byte*) 
+
+### Simple Math with Java
+- Here is an example of a simple division problem in Java: `int myTotal = (myMinIntValue /2);`
+    - This creates a variable called *myTotal*
+    - Takes the value of *myMinIntValue* (remember that is -2147483648) and divides it by two
+    - Assigns the new value (-1073741824) to the *myTotal* varaiable. 
+    - if we attempted to do this with a *byte* data type, however, it would present an error:
+    ```java
+    byte myNewByteValue = (myMinByteValue /2);
+
+    Error:
+    incompatible data types: possible lossy conversation from int to byte.
+    ```
+- In a situation where we feed Java a literal value for a variable, it is smart enough to know whether or not the result will fit in the prescribed variable. 
+- On the other hand, if we attempt to send a value using a variable (like myMinByteValue) Java has not seen what is inside the variable to realize that it won't work, hence it will throw an error. 
+
+### Casting in Java
+No, not like what a wizard does...
+
+**Casting** means to treat or convert a number, from one type to another. We put the type we want the number to be in parenthesis like this:
+`byte myNewByteValue = (byte) (myMinByteValue / 2);`
+    - This will establish the value to be *-64* which will easily fit in a byte data type. 
+
+- This will work with other data types as well including short:
+    `short myNewShortValue = (short) (myMinShortValue /2);`
+
+## Chapter 21 - Primitive Types Challenge: Applying Your Knowledge
+This chapter is focused on doing some challenges with various data types to test our skills. 
