@@ -390,5 +390,18 @@ Each of these data types in Java have a different width. If we are to properly u
     System.out.print("Long Value Range (" + Long.MIN_VALUE + " to " + Long.MAX_VALUE + ")");
     ```
     - This will output the following range: `Long Value Range (-9223372036854775808 to 9223372036854775807)`
+- Without including the *L* on the number, even if we designate it as a *long*, the variable will default to an *integer*. 
+- An example of this code:
+    ```java
+    long bigLongLiteralValue = 2_147_483_647;
+    bigLongLiteralValue ==> 2147483647
+    ```
+    - This instance will work properly. But if we try to change the value without using the *L* then Java will default to *int* as seen here:
+    ```java
+    long bigLongLiteralValue = 2_147_483_647_234;
+    Error:
+    integer number too large
+    ``` 
+    - However, if you add the expected *L* on the end `long bigLongLiteralValue = 2_147_483_647_234L;` then you will not get an error. 
 
-    
+## Chapter 20 - Understanding Casting with Numeric Primitives Types in Java
