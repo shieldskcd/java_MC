@@ -9,7 +9,8 @@ This section is our first look at actually doing code in Java. We will be workin
 - [Chapter 19 - Understanding Short, Byte, and Long Data Types](#chapter-19---understanding-byte-short-and-long-data-types)
 - [Chapter 20 - Understanding Casting with Numeric Primitives in Java](#chapter-20---understanding-casting-with-numeric-primitives-types-in-java)
 - [Chapter 21 - Primitive Types Challenge: Appying Your Knowledge](#chapter-21---primitive-types-challenge-applying-your-knowledge)
-- [Chapter 22 - Working with Float and Double: Precision in Floating Point Nubmers](#chapter-22---working-with-floar-and-double-precision-in-floating-point-numbers)
+- [Chapter 22 - Working with Float and Double: Precision in Floating Point Nubmers](#chapter-22---working-with-float-and-double-precision-in-floating-point-numbers)
+- [Chapter 23 - Understanding Floating-Point Precision: A Practical Challenge in Java](#chapter-23---understanding-floating-point-precision-a-practical-challenge-in-java)
 
 ---
 
@@ -537,7 +538,7 @@ The instructor suggested we do it like this:
     
  ```java
     byte byteValue = 10;
-     short shortValue = 20;
+    short shortValue = 20;
     int intValue = 50;
 
     long longTotal = 50000L + 10L * (byteValue + shortValue + intValue);
@@ -590,6 +591,116 @@ We can solve this by forcing a *cast* to the byte value:
 
 ---
 
-## Chapter 22 - Working with Floar and Double: Precision in Floating Point Numbers
+## Chapter 22 - Working with Float and Double: Precision in Floating Point Numbers
 
 In this next section, we will work with decimals for some real world use cases. 
+
+Unlike whole numbers, *floating-point* nubmers have *fractional* parts requiring a decimal point. 
+
+### Comparing Whole Nubmers and Floating Point Numbers
+
+| Whole Numbers | Floating Point Numbers |
+| ------ | ------- |
+| 3 | 3.14159 |
+| 10000 | 10.0 |
+| -2147483649L | -0.666666666666667|
+
+The purpose of a floating point number in Java is to allow for more precision in calculating complex numbers. 
+
+### Java's Floating Point Number Options
+
+| Java's Data Types for Floating Point Numbers |
+| -------- |
+| float |
+| **double** |
+| The double is Java's default number for decimals and real numbers. |
+
+### Single and Double Precision
+
+Precision refers to the format and amount of space occupied by the relevant type. 
+
+| Data Type | Width (in bits) | Min Value | Max Value |
+| ------ | ------- | ------- | ------ |
+| float | 32 | 1.4E-45 | 3.4028235E38 |
+| double | 64 | 4.9E-324 | 1.7976931348623157E308 |
+
+**Note** The *E* numbers are using Java Scientific Notation
+
+### Java Scientific Notation
+
+Scientific notation can be translated into more familiar terms, by replacing *E* in the nubmer with the words *10 times the power of...* 
+
+- 1.4E-45 is the same as 1.4 X 10^-45 and 3.4E38 is the same as 3.4 X 10^38
+- For more clarity, remember that 10-1 = *0.1* and 10-5 = *0.00001*
+- The moral of this story is that *double* when compared to *float* can handle both a much smaller and much larger decimal value.
+
+If you wanted to check this function in Java, you could use the following code:
+```java
+System.out.print("Float Value Range(" + Float.MIN_VALUE + " to " + Float.MAX_VALUE + ")");
+
+Float Value Range(1.4E-45 to 3.4028235E38) 
+```
+You could also do the same thing with  the *double* value using this code:
+```java
+System.out.print("Double Value Range(" + Double.MIN_VALUE + " to " + Double.MAX_VALUE +")");
+
+Double Value Range(4.9E-324 to 1.7976931348623157E308)
+```
+### Workiing with Float and Double
+Now let's do some practical application of the float and double values. 
+
+```java
+int myIntValue = 5; float myFloatValue = 5; double myDoubleValue = 5;
+```
+**Note** Much like the *Long* value, you want to suffix *float* and *double* values. 
+    - Since *double* is default, you don't have to include the *d* or *D* 
+    - For *float*, however, we need to add *f* or *F* to establish a *Float*
+    - When interacting with literal constants, it is good practice to assign the *F* and *D* suffixes
+
+A better example of the code from earlier is as follows:
+
+```java
+myFloatValue = 5f;
+myDoubleValue = 5d;
+```
+It is possible to create an issue if you do not specify the *f* and *d* when working with decimals:
+
+```java
+float myOtherFloatValue = 5.25;
+
+Error:
+incompatible types: possible lossy conversion from double to float
+float myOtherFloatValue = 5.25;
+```
+### Challenge - Fix the Float with casting
+
+We know we can use the *f* to force a float and remove the error above. But what about using casting? 
+
+Create a solution that removes the error above **without** using the *f* function. 
+
+This was my solution:
+
+```java
+float myOtherFloatValue = (float) (5.25);
+
+myOtherFloatValue ==> 5.25
+```
+
+This solution appears to work!
+
+### Good Coding Practice Note
+It is generally a good coding practice to **NOT** use the *float* vaue unless it is absolutely necessary. 
+
+There are a few reasons for this:
+- *double* is a more precise type than *float*
+- Code readability is much easier when using `float myOtherFloatValue = 5.25f;` because it's less code to review.
+
+In Oracle Certification exams, they like to use the `float myOtherFloatValue = 5.25;` on questions requiring code review. So if you know to look for the requisite *f* it 
+will basically be a free question. 
+
+[Back to Top](#table-of-contents)
+
+--- 
+
+## Chapter 23 - Understanding Floating-Point Precision: A Practical Challenge in Java
+
