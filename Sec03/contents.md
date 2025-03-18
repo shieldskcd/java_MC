@@ -630,7 +630,7 @@ Precision refers to the format and amount of space occupied by the relevant type
 
 Scientific notation can be translated into more familiar terms, by replacing *E* in the nubmer with the words *10 times the power of...* 
 
-- 1.4E-45 is the same as 1.4 X 10^-45^ and 3.4E38 is the same as 3.4 X 10^38^
+- 1.4E-45 is the same as 1.4 X 10<sup>-45</sup> and 3.4E38 is the same as 3.4 X 10<sup>38</sup>
 - For more clarity, remember that 10-1 = *0.1* and 10-5 = *0.00001*
 - The moral of this story is that *double* when compared to *float* can handle both a much smaller and much larger decimal value.
 
