@@ -11,6 +11,7 @@ This section is our first look at actually doing code in Java. We will be workin
 - [Chapter 21 - Primitive Types Challenge: Appying Your Knowledge](#chapter-21---primitive-types-challenge-applying-your-knowledge)
 - [Chapter 22 - Working with Float and Double: Precision in Floating Point Nubmers](#chapter-22---working-with-float-and-double-precision-in-floating-point-numbers)
 - [Chapter 23 - Understanding Floating-Point Precision: A Practical Challenge in Java](#chapter-23---understanding-floating-point-precision-a-practical-challenge-in-java)
+- [Chapter 24 - Exploring Character (char) and Boolean Primitive Data Types](#chapter-24---exploring-character-char-and-boolean-primitive-data-types)
 
 ---
 
@@ -839,7 +840,7 @@ In this example, the numbers input with underscores formatted exactly as they sh
 
 ### Floating Point Number Precision Tips
 - Float and double are great for general floating point operations. 
-- **Neither** should be used when precise calculations are required because of how floating point nubmers are stored, this is not native to Java. 
+- **Neither** should be used when precise calculations are required because of how floating point numbers are stored, this is not native to Java. 
 - To deal with this absurdly large numbers, Java has a class called *BigDecimal* that is more precise. 
 
 [Back to Top](#table-of-contents)
