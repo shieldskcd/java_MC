@@ -576,10 +576,10 @@ short shortTotal = (10000 + 10 * (byteValue + shortValue + intValue));
 ```
 We can solve this by forcing a *cast* to the byte value:
 
-    ```java
+```java
     short shortTotal = (short) (1000 + 10 * (byteValue + shortValue + intValue));
     shortTotal ==> 1800
-    ```
+```
 ### Recap
 
 - We have now worked a lot with bytes, shorts, integers, and longs. 
