@@ -9,6 +9,7 @@ This section is our first look at actually doing code in Java. We will be workin
 - [Chapter 19 - Understanding Short, Byte, and Long Data Types](#chapter-19---understanding-byte-short-and-long-data-types)
 - [Chapter 20 - Understanding Casting with Numeric Primitives in Java](#chapter-20---understanding-casting-with-numeric-primitives-types-in-java)
 - [Chapter 21 - Primitive Types Challenge: Appying Your Knowledge](#chapter-21---primitive-types-challenge-applying-your-knowledge)
+- [Chapter 22 - Working with Float and Double: Precision in Floating Point Nubmers](#chapter-22---working-with-floar-and-double-precision-in-floating-point-numbers)
 
 ---
 
@@ -488,9 +489,8 @@ We will use the option for casting specific types of numbers as other values in 
 No, not like what a wizard does...
 
 **Casting** means to treat or convert a number, from one type to another. We put the type we want the number to be in parenthesis like this:
-    ```java
-     byte myNewByteValue = (byte) (myMinByteValue / 2);
-     ```
+    `byte myNewByteValue = (byte) (myMinByteValue / 2);`
+
 - This will establish the value to be *-64* which will easily fit in a byte data type. 
 
 - This will work with other data types as well including short:
@@ -502,3 +502,94 @@ No, not like what a wizard does...
 
 ## Chapter 21 - Primitive Types Challenge: Applying Your Knowledge
 This chapter is focused on doing some challenges with various data types to test our skills. 
+
+### Challenge Items:
+- Create a *byte* variable and set it to a valid byte value.
+    - I created *myChallengeByte* and set it to 61
+- Create a *short* variable and set it to a valid short value.
+    - I created *myShortByte* and set it to 10201
+- Create an *int* variable and set it to a valid int value. 
+    - I created *myChallengeInt* and set it to 867005309.
+- Create a *long* variable and:
+    - Make it equal to 50,000 *plus* **10 times** the sum of your byte, short, and int values.
+    - Use the variable names to calculate the same. 
+
+### Challenge Code
+I tried a lot of different ways to make this work but the code I ultimately chose was as follows:
+   
+    ```java
+    byte myByteChallenge = 61;
+    short myShortChallengeShort = 10201;
+    int myIntChallenge = 867005309;
+
+  long myChallengeP1 = (myByteChallenge + myShortChallengeShort + myIntChallenge);
+  ==> 867015571
+
+  long myChallengeP2 = (10L * myChallengeP1);
+  ==> 8670155710
+
+  long myChallengeAnswer = (50_000L * myChallengeP2);
+  ==> 433507785500000
+  ```
+Although this may not be the most effective way to solve this problem, it seemed to provide the desired results. 
+
+### Instructor's Code Answer
+The instructor suggested we do it like this:
+    
+    ```java
+    byte byteValue = 10;
+    short shortValue = 20;
+    int intValue = 50;
+
+    long longTotal = 50000L + 10L * (byteValue + shortValue + intValue);
+    ```
+Another completely valid example is more similar to the one that I did:
+
+    ```java
+    byte byteValue = 10;
+    short shortValue = 20;
+    int intValue = 50;
+
+    int sumOfThree = byteValue + shortValue + intValue;
+    long LongTotal = 50000L + (10 * sumOfThree);
+    ```
+### Using Parenthesis
+
+- Parentheses are another way to make your code more readable. 
+    `longTotal = 50000L + (10 * sumOfThree);`
+
+- They also make it clear which calculations should be done first. 
+
+### Using a Short (and breaking it)
+
+Another example suggested by the instructor shows a shortcoming of the short value as indidcated by this code:
+
+```java
+short shortTotal = (1000 + 10 * (byteValue + shortValue + intValue));
+```
+This will produce an error of:
+
+```java
+Error:
+incompatible types: possible lossy conversion from int to short
+short shortTotal = (10000 + 10 * (byteValue + shortValue + intValue));
+```
+We can solve this by forcing a *cast* to the byte value:
+
+    ```java
+    short shortTotal = (short) (1000 + 10 * (byteValue + shortValue + intValue));
+    shortTotal ==> 1800
+    ```
+### Recap
+
+- We have now worked a lot with bytes, shorts, integers, and longs. 
+- Now we need to work on four other data types. 
+- In the next section we will focus on dealing with decimals instead of whole numbers. 
+
+[Back to Top](#table-of-contents)
+
+---
+
+## Chapter 22 - Working with Floar and Double: Precision in Floating Point Numbers
+
+In this next section, we will work with decimals for some real world use cases. 
