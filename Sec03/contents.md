@@ -530,18 +530,20 @@ I tried a lot of different ways to make this work but the code I ultimately chos
 
   long myChallengeAnswer = (50_000L * myChallengeP2);
   ==> 433507785500000
-  ```
+    ```
 Although this may not be the most effective way to solve this problem, it seemed to provide the desired results. 
 
 ### Instructor's Code Answer
 The instructor suggested we do it like this:
     
     ```java
+
     byte byteValue = 10;
     short shortValue = 20;
     int intValue = 50;
 
     long longTotal = 50000L + 10L * (byteValue + shortValue + intValue);
+   
     ```
 Another completely valid example is more similar to the one that I did:
 
