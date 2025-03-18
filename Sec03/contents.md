@@ -853,8 +853,8 @@ We have used literal strings before but may not realize that is what we were doi
 ### Comparing char to String
 | char | String |
 | ----- | -----|
-| - Holds one and **ONLY** one character | - Can hold multiple characters |
-| - Literal enclosed in **single** quotes   | - Literal enclosed in **double** quotes |
+| Holds one and **ONLY** one character | Can hold multiple characters |
+| Literal enclosed in **single** quotes   | Literal enclosed in **double** quotes |
 
 In this example, it is perfectly fine to use a single character for *char* like `char myChar = 'D';`
 
