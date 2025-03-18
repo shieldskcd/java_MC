@@ -703,4 +703,147 @@ will basically be a free question.
 --- 
 
 ## Chapter 23 - Understanding Floating-Point Precision: A Practical Challenge in Java
+There are a few different ways to present literal decimal values when typing them directly into Java such as:
 
+| Literal Value | Default Output |
+| ------ | ------|
+| 5 | 5.0 |
+| 5.000000 | 5.0 |
+| 5f | 5.0 |
+| 5d | 5.0 |
+| 5e1 | 50.0 |
+| 5_000_000.0 | 5000000.0 |
+| 50_000_000.0 | 5.0E7 |
+
+### Simple Division
+
+Let's try some simple division to illustrate the use of Float. If we try the basic code to divide 5 by 2 but don't include the f, we will get an integer value:
+
+```java
+myIntValue = 5/2;
+myIntValue ==> 2
+```
+
+However, we know that this is not precise. This is because Java saw two integers and assumed we wanted to get an integer value. If we force the *float*, we can get a more precise answer:
+
+```java
+myFloatValue = 5f / 2f;
+myFloatValue ==> 2.5
+```
+We can do something similar with *double*
+
+```java
+myDoubleValue = 5d / 2d;
+myDoubleValue ==> 2.5
+```
+Now, let's try a bit more complex division operation. 
+
+```java
+myIntValue = 5 / 3;
+myIntValue ==> 1
+```
+
+Notice that this is a whole value which does not accurately represent the value. So, let's go with the more precise *float* value. 
+
+```java
+myFloatValue = 5f / 3f;
+myFloatValue ==> 1.6666666
+```
+
+This data represents a number with a default limit of 7 decimal places. However, if we do the exact same code but with *double* we get a more precise number:
+
+```java
+myDoubleValue = 5d / 3d;
+myDoubleValue ==> 1.6666666666666667
+```
+
+This number is clearly more precise than the *float* variant.
+
+We can type decimals correctly into the values to negate the need to include the *d*. 
+
+```java
+myDoubleValue = 5.00 / 3.00;
+myDoubleValue = 1.6666666666666667.
+```
+
+Because we incuded the trailing decimals, Java automatically assigned the correct double value type. 
+
+### Mixing operands
+
+The *operand* is a term used to describe the number on either side of a mathematical statement. In the example above, `myDoubleValue = 5.00 / 3.00` the values of *5.00* and *3.00* are **operands**. 
+
+What if wenated to mix values to include a double and an integer? 
+
+```java
+myDoubleValue = 5.00 / 3;
+myDoubleValue ==> 1.6666666666666667
+```
+The result is the same because *ONE* of the *operands* includes a decimal (5.00). Java sees that at least one operand uses decimals and automatically displays the *double* value. 
+
+However, this will *NOT* work when using floats:
+
+```java
+myFloatValue = 5.00 / 3f;
+
+Error:
+incompatible types: possible lossy conversion from double to float
+myFloatValue = 5.00 / 3f;
+```
+This failed because Java has already established a *double* variable and you cannot force a *float* value into a *double* data store. 
+
+### Why Choose Double?
+- It is actually faster processing on modern computers
+- Many Java Libraries that will be used later in the course, especially math operations are often written to process doubles by default. 
+- Java creators selected *Double* because it is more precise than *Float* and can handle larger numbers. 
+- Decades ago, lack of memory in computers was a problem but with most modern computers, this is no longer the case. 
+
+### Coding Challenge - Convert Pounds to Kilograms
+
+Steps:
+1. Create a variable with the appropriate type to store the number of Pounds we want to convert to Kilograms 
+2. Calculate Kilograms, using the variable above, and store the result in a second appropriately typed variable. 
+3. Use the following conversion: `1 pound is equal to 0.45359327 kilograms`
+
+My code:
+```java
+double poundValue = 210;
+double kiloValue = 0.45359327;
+double convertedAmount;
+
+convertedAmount = poundValue * kiloValue
+
+System.out.print(convertedAmount);
+```
+This solution appears to have worked!
+
+The instructor's solution is as follows:
+```java
+double numberOfPounds = 200d;
+double convertedKilograms = numberOfPounds * 0.45359327d;
+System.out.print("Converted kilograms = " + convertedKilograms);
+
+convertedKilograms ==> 90.718474
+```
+### Underscores in Doubles and Floats
+You can also include underscores in code with decimals to make the numbers clearer. 
+
+For example:
+```java
+double pi = 3.1415927d;
+pi ==> 3.1415927
+
+double anotherNumber = 3_000_000.4_567_890d;
+anotherNumber ==> 3000000.456789
+```
+In this example, the numbers input with underscores formatted exactly as they should without the underscores. Additionally, the *0* at the end did not populate because it was not necessarry. 
+
+### Floating Point Number Precision Tips
+- Float and double are great for general floating point operations. 
+- **Neither** should be used when precise calculations are required because of how floating point nubmers are stored, this is not native to Java. 
+- To deal with this absurdly large numbers, Java has a class called *BigDecimal* that is more precise. 
+
+[Back to Top](#table-of-contents)
+
+---
+
+## Chapter 24 - Exploring Character (Char) and Boolean Primitive Data Types
