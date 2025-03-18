@@ -848,3 +848,118 @@ In this example, the numbers input with underscores formatted exactly as they sh
 ---
 
 ## Chapter 24 - Exploring Character (Char) and Boolean Primitive Data Types
+We have used literal strings before but may not realize that is what we were doing. You can see this in the use of the double quotes in our print statements: `System.out.print("Hello World");`
+
+### Comparing char to String
+| char | String |
+| ----- | -----|
+| - Holds one and **ONLY** one character | - Can hold multiple characters |
+| - Literal enclosed in **single** quotes   | - Literal enclosed in **double** quotes |
+
+In this example, it is perfectly fine to use a single character for *char* like `char myChar = 'D';`
+
+However, if we tried to add another letter to it, it will give an error: 
+```java
+myChar = 'DD';
+
+Error:
+unclosed character literal
+char myChar = 'DD';
+```
+This is because we are using a *char* which only handles **ONE** character.
+
+### Why Even Bother with Char?
+- One example might be to store the last key pressed by a user in a game since usually the characters W,A,S,D are used for nagivating, you could store the more recent value pressed. 
+- You may also want to loop through the entire alphabet, one character at a time. 
+- You may also want to consider using an *array* to store the entire history of keys pressed by a user in a game. We will discuss arrays in more detail later. 
+
+### Memory considerations for Char
+- In the early days of Java, computer memory was much smaller so saving memory was very important. 
+- In the modern era, this is not as important since computers have lots of memory, but it's still a good idea to only use the amount of memory needed to reduce memory heavy apps. 
+- Despite what we might think, a *char* requires two bytes of memory or *16 bits* and therefore has a width of 16. 
+- The main reason is that it is not just a single byte, but a 2 byte number similar to the short. 
+- Other reasons to use a char: 
+    - When you print a *char* you will see the *mapped character* rather than the reperesentative number.
+    - Using a single quote and a character literal to assign a value to a char and that is much simpler than looking up the representative number. 
+    - There are several characters that are not present on a keyboard (such as degrees or special language characters).
+    - Java also has the ability to use unicode values that can be stored as a character literal. 
+
+### What is Unicode?
+- Unicode is an international encoding standard for use with different languages and scripts by which each letter, digit, or symbol is assigned a unique numeric value that applies across different programs and platforms. 
+- In English, we only use the letters A-Z, only 26 characters
+- However, other languages need more characters, often *A LOT* more. 
+- By using unicode values, we can reference the 2 characters stored in memory and store any of the 65,535 potential different types of characters. 
+    - A handy website for this is to use [Symbol.cc](https://symbl.cc/). 
+    - Go to the website, click the menu icon and select *Unicode* to be presented with a massive list of characters. 
+- If we wanted to use a unicode value, especially for a unique character, we can force this value in a char:
+```java
+char myUnicode = '\u0044';
+myUnicode ==> 'D'
+```
+
+Or you could get creative and use a stranger letter:
+
+```java
+myUnicode = '\u0416';
+myUnicode = '?'
+```
+
+**Note** This value defaults to a *?* because my computer does not currently support the language this comes from (Cyrillic). 
+
+You will also find that the character in HTML shows a value of *68* for the letter D. This means that if we were to assign the char literal to 68, it is a shorthand code for the letter "D".
+
+```java
+char myDecimalCode = 68;
+myDecimalCode ==> 'D';
+```
+
+### Assigning Values to a char variable
+There are three ways to assign a value to a char:
+
+| Assignment Type | Example Code |
+|------ | ------|
+| a literal character | char myChar = 'D';|
+| a Unicode value | char myChar = '\u0044';|
+| an integer value | char myChar = 68;|
+
+### The char Challenge
+Now we are going to test our knowledge of char values and storing them. 
+
+Create three char variables to store the character for the question-mark symbol.
+- *mySimpleChar* should be assigned the literal question mark character ?.
+- *myUnicodeChar* should be assigned the unicode value for the question-mark ?.
+- *myDecimalChar* should be assigned the decimal value of the question-mark ?.
+- Print all three variables in one statement, that starts with the label "My values are". 
+
+*Hint* - use the [symbl.cc](https://symbl.cc) website. 
+
+My code is as follows:
+```java
+char mySimpleChar = '?';
+char myUnicodeChar = '\u003f';
+char myDecimalChar = 63;
+
+System.out.print("My values are " + mySimpleChar + myUnicodeChar + myDecimalChar);
+```
+This solution appears to have worked!
+
+I tried another one with a slightly different character but one that should still be available on my device. 
+
+```java
+char mySimpleTest = '\u00a7';
+char myNextTest = 169;
+char myLastTest = '\u00de';
+
+System.out.print("My test values are " + mySimpleTest + myNextTest + myLastTest);
+```
+
+Most of these items worked, but the character mapping appears to be different. 
+- u00A7 *should* have produced § but it produced º
+- 169 *should* have produced © but it produced ⌐
+- u00DE *should* have produced Þ but it produced ▐
+
+I have no idea why this is happening but perhaps it is a keyboard mapping issue.
+
+[Back to Top](#table-of-contents)
+
+---
